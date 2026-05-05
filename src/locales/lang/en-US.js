@@ -3997,6 +3997,13 @@ const locale = {
   'billing.perMonth': 'month',
   'billing.perYear': 'year',
   'billing.once': 'one-time',
+
+  // JJQ's Test
+  'menu.jjqTest': 'JJQ Test',
+  'jjqTest.welcome': 'Welcome to JJQ Test Page',
+  'jjqTest.description': 'This is a test page. You can add any content here.',
+  'jjqTest.testButton': 'Test Button',
+  'jjqTest.testSuccess': 'Test successful! This is JJQ\'s test page.',
   'billing.credits': 'Credits',
   'billing.lifetimeMonthly': 'Monthly bonus',
   'billing.buyNow': 'Buy Now',

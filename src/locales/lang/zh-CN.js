@@ -3907,6 +3907,13 @@ const locale = {
   'billing.plan.lifetime': '永久会员',
   'billing.perMonth': '月',
   'billing.perYear': '年',
+
+  // JJQ的测试
+  'menu.jjqTest': 'JJQ的测试',
+  'jjqTest.welcome': '欢迎使用 JJQ 测试页面',
+  'jjqTest.description': '这是一个用于测试的新页面，你可以在此处添加任何内容。',
+  'jjqTest.testButton': '测试按钮',
+  'jjqTest.testSuccess': '测试成功！这是 JJQ 的测试页面。',
   'billing.once': '一次性',
   'billing.credits': '积分',
   'billing.lifetimeMonthly': '每月赠送',

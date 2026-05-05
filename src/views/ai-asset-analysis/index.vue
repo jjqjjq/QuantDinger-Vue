@@ -28,7 +28,7 @@
             <!-- Card top: symbol + market -->
             <div class="rc-head">
               <span class="rc-symbol" :class="{ 'rc-prediction-title': opp.market === 'PredictionMarket' }">
-                {{ opp.market === 'PredictionMarket' ? (opp.name || opp.symbol) : opp.symbol }}
+                {{ opp.market === 'PredictionMarket' ? (opp.name || opp.symbol) : (opp.name ? opp.symbol + ' - ' + opp.name : opp.symbol) }}
               </span>
               <span class="rc-market" :class="'rc-market-' + (opp.market || '').toLowerCase()">
                 {{ getMarketLabel(opp.market) }}
@@ -493,6 +493,10 @@ export default {
         font-size: 15px;
         color: #111;
         letter-spacing: -0.2px;
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 
         &.rc-prediction-title {
           font-size: 13px;
@@ -502,6 +506,9 @@ export default {
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
+          text-overflow: initial;
+          white-space: normal;
+          flex: initial;
         }
       }
 

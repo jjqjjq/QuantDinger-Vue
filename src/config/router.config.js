@@ -142,6 +142,13 @@ export const asyncRouterMap = [
         name: 'Settings',
         component: () => import('@/views/settings'),
         meta: { title: 'menu.settings', keepAlive: false, icon: 'setting', permission: ['admin'] }
+      },
+      // JJQ的测试
+      {
+        path: '/jjq-test',
+        name: 'JJQTest',
+        component: () => import('@/views/jjq-test'),
+        meta: { title: 'menu.jjqTest', keepAlive: false, icon: 'experiment', permission: ['dashboard'] }
       }
 
       // other
