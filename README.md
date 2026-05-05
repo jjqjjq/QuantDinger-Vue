@@ -5,13 +5,13 @@
 <h1 align="center">QuantDinger Frontend</h1>
 
 <p align="center">
-  <strong>Vue.js frontend source for QuantDinger v3.0.1</strong><br/>
-  <strong>AI-native quant research, strategy, trading, and operations workspace</strong>
+  <strong>QuantDinger v3.0.1 的 Vue.js 前端源码</strong><br/>
+  <strong>AI 原生量化研究、策略、交易与运营工作台的 Web 界面层</strong>
 </p>
 
 <p align="center">
-  <a href="./README.md"><strong>English</strong></a> ·
-  <a href="./README_CN.md"><strong>简体中文</strong></a>
+  <a href="./README_EN.md"><strong>English</strong></a> ·
+  <a href="./README.md"><strong>简体中文</strong></a>
 </p>
 
 <p align="center">
@@ -24,78 +24,78 @@
 </p>
 
 <p align="center">
-  <a href="https://ai.quantdinger.com">Live Demo</a> ·
-  <a href="https://github.com/brokermr810/QuantDinger">Main Repository</a> ·
+  <a href="https://ai.quantdinger.com">在线演示</a> ·
+  <a href="https://github.com/brokermr810/QuantDinger">主仓库</a> ·
   <a href="https://t.me/worldinbroker">Telegram</a> ·
-  <a href="#license">License</a>
+  <a href="#license">许可证</a>
 </p>
 
 ---
 
-## Overview
+## 概览
 
-This repository contains the Vue.js frontend source code for QuantDinger. It is the web application layer that connects traders, researchers, and operators to the QuantDinger backend for AI analysis, charting, strategy development, backtesting, execution, billing, and user management.
+本仓库是 QuantDinger 的 Vue.js 前端源码仓库，承载产品的 Web 界面层，负责连接后端能力与用户交互，包括 AI 分析、图表研究、策略开发、回测、交易执行、计费和用户管理等前端工作流。
 
-If you are looking for one-click deployment, Docker Compose, backend APIs, or the full product documentation, start with the main repository:
+如果你要查找 Docker Compose 一键部署、后端 API、完整产品说明或正式部署文档，请优先查看主仓库：
 
-- [QuantDinger main repository](https://github.com/brokermr810/QuantDinger)
+- [QuantDinger 主仓库](https://github.com/brokermr810/QuantDinger)
 
-## What This Frontend Delivers
+## 这个前端仓库提供什么
 
-### 1. Research and Analysis Workspace
+### 1. 研究与分析工作台
 
-- AI analysis pages for structured market research and decision support
-- Multi-view market interfaces for crypto, stocks, forex, and related research flows
-- Fast analysis, history review, and asset-research experiences connected to backend services
-- Polymarket analysis UI for prediction-market research workflows
+- AI 分析页面，用于结构化市场研究与交易判断支持
+- 面向加密货币、股票、外汇等场景的多视图研究界面
+- 与后端 Fast Analysis、历史分析、资产研究能力联动
+- Polymarket 预测市场分析相关前端界面
 
-### 2. Strategy and Indicator Authoring
+### 2. 指标与策略编写体验
 
-- Browser-based Python indicator and strategy editing workflows
-- Natural-language assisted code generation experiences
-- Professional K-line chart integration for signal inspection and strategy validation
-- Drawing tools and chart overlays for discretionary and systematic workflows
+- 浏览器内完成 Python 指标与策略编辑
+- 自然语言辅助生成代码的产品流程
+- 集成专业 K 线图，方便信号检查与策略验证
+- 支持趋势线、覆盖物等图表交互工具
 
-### 3. Backtesting and Review
+### 3. 回测与复盘界面
 
-- Backtest Center interfaces for running and reviewing backtests
-- Equity curves, trade records, result summaries, and configuration review
-- Strategy-linked backtesting flows aligned with the backend persistence model
-- UI support for iterative research and strategy refinement
+- 回测中心界面，用于发起、查看和复盘回测结果
+- 收益曲线、交易记录、结果摘要和配置回顾
+- 与后端策略持久化模型对齐的策略级回测工作流
+- 支持研究迭代与策略改进的前端交互链路
 
-### 4. Trading and Portfolio Operations
+### 4. 交易与组合运营
 
-- Trading assistant pages for the strategy lifecycle
-- Quick trade panel for direct execution from signal contexts
-- Portfolio monitoring views and virtual position management
-- Exchange account binding and execution-related UI components
+- 交易助手页面，覆盖策略生命周期管理
+- 快速交易面板，支持从信号场景直接进入下单流程
+- 组合监控页面和虚拟持仓管理
+- 交易所账户绑定与执行相关组件
 
-### 5. Platform and Commercial Features
+### 5. 平台与商业化界面
 
-- Membership, credits, billing, and payment-related pages
-- User profile, settings, role-aware admin views, and OAuth-related flows
-- Indicator community and marketplace-oriented interfaces
-- Responsive layout, theme switching, and multilingual support
+- 会员、积分、计费、支付相关页面
+- 用户资料、系统设置、管理员视图与 OAuth 流程
+- 指标社区与市场化相关页面
+- 响应式布局、主题切换与多语言支持
 
-## v3.0.1 Positioning
+## v3.0.1 文档定位
 
-For `v3.0.1`, this frontend README is aligned with the current product scope and the main repository documentation:
+这份中文版 README 作为英文主 README 的补充版本，保持以下原则：
 
-- product messaging is now consistent with the actual QuantDinger deployment model
-- frontend capabilities are described as part of a full-stack trading product, not an isolated demo UI
-- documentation now matches the recent strategy backtesting productization and the latest public version label
+- 以英文 README 作为前端仓库的主说明文档
+- 中文版用于帮助中文开发者快速理解仓库职责和开发方式
+- 文档口径与主仓库 `v3.0.1` 版本说明保持一致
 
-## Development Setup
+## 开发环境启动
 
-### Prerequisites
+### 前置要求
 
-| Requirement | Version |
-|-------------|---------|
-| Node.js | 16+ recommended |
+| 要求 | 版本 |
+|------|------|
+| Node.js | 建议 16+ |
 | npm | 8+ |
-| Backend | QuantDinger backend available at `http://localhost:5000` |
+| Backend | 可访问的 QuantDinger 后端，默认 `http://localhost:5000` |
 
-### Install and Run
+### 安装与启动
 
 ```bash
 git clone https://github.com/brokermr810/QuantDinger-Vue.git
@@ -104,75 +104,82 @@ npm install
 npm run serve
 ```
 
-The development server runs at:
+开发服务器默认地址：
 
 - `http://localhost:8000`
 
-Default login is determined by the backend configuration. In the default Docker experience it is commonly:
+默认登录信息取决于后端配置。在默认 Docker 体验中，常见为：
 
 ```text
 quantdinger / 123456
 ```
 
-### API Proxy
+### API 代理
 
-In local development, `/api/*` requests are proxied to the backend through `vue.config.js`.
+本地开发时，`/api/*` 请求会通过 `vue.config.js` 代理到后端。
 
-- Proxy config file: `vue.config.js`
-- Default backend target: `http://localhost:5000`
+- 代理配置文件：`vue.config.js`
+- 默认目标地址：`http://localhost:5000`
 
-If your backend runs elsewhere, update the proxy target accordingly.
+如果后端运行在其他地址或端口，请相应调整代理配置。
 
-## Recommended Integration Modes
+## 推荐集成方式
 
-### Option A: Use the Main Repository
+### 方式 A：使用主仓库
 
-For most users, the recommended path is to use the main QuantDinger repository, which includes Docker Compose, backend services, Nginx delivery, and deployment documentation:
+对于大多数用户，推荐直接使用 QuantDinger 主仓库。主仓库已经提供：
 
-- [QuantDinger main repository](https://github.com/brokermr810/QuantDinger)
+- Docker Compose 一键部署
+- 后端服务与数据库
+- Nginx 前端托管与 API 反向代理
+- 更完整的产品文档与部署文档
 
-### Option B: Frontend Source Development
+入口：
 
-Use this repository directly when you want to:
+- [QuantDinger 主仓库](https://github.com/brokermr810/QuantDinger)
 
-- customize the web UI
-- develop new pages or components
-- adjust charting, internationalization, or admin workflows
-- build and publish your own frontend artifact against a compatible backend
+### 方式 B：前端源码开发
 
-## Production Build
+当你需要以下能力时，适合直接使用本仓库：
+
+- 自定义 Web UI
+- 开发新的页面或组件
+- 调整图表、国际化或后台管理流程
+- 构建自己的前端产物并连接兼容后端
+
+## 生产构建
 
 ```bash
 npm run build
 ```
 
-Build output is generated in `dist/`. You can serve it with Nginx or another static file server.
+构建产物输出到 `dist/`，可由 Nginx 或其他静态文件服务托管。
 
-For a production-ready integrated deployment, prefer the delivery model from the main repository, which already provides frontend serving and API proxying.
+如果你需要完整的生产部署方案，仍建议优先使用主仓库中的交付方式。
 
-## Functional Areas
+## 功能模块分布
 
-### Analysis and Research Pages
+### 分析与研究页面
 
 - `src/views/ai-analysis/`
 - `src/views/ai-asset-analysis/`
 - `src/views/dashboard/`
 - `src/views/indicator-analysis/`
 
-### Strategy, IDE, and Backtesting
+### 策略、IDE 与回测
 
 - `src/views/indicator-ide/`
 - `src/views/backtest-center/`
 - `src/views/trading-assistant/`
 - `src/views/trading-bot/`
 
-### Execution and Portfolio
+### 执行与组合
 
 - `src/components/QuickTradePanel/`
 - `src/views/portfolio/`
 - `src/components/ExchangeAccountModal/`
 
-### Billing, Community, and User System
+### 计费、社区与用户系统
 
 - `src/views/billing/`
 - `src/views/indicator-community/`
@@ -180,123 +187,123 @@ For a production-ready integrated deployment, prefer the delivery model from the
 - `src/views/profile/`
 - `src/views/user/`
 
-## Project Structure
+## 项目结构
 
 ```text
 QuantDinger-Vue/
-├── public/                    # Static assets and HTML shell
+├── public/                    # 静态资源与 HTML 壳
 ├── src/
-│   ├── api/                   # API request modules
-│   ├── assets/                # Images, icons, styles
-│   ├── components/            # Shared UI components
-│   ├── config/                # App and router config
-│   ├── core/                  # Bootstrapping, auth, app setup
-│   ├── layouts/               # Page layouts
-│   ├── locales/               # i18n resources
-│   ├── router/                # Vue Router configuration
-│   ├── store/                 # Vuex state management
-│   ├── utils/                 # Helpers, request interceptors, crypto utils
-│   └── views/                 # Page-level modules
-├── vue.config.js              # Vue CLI / webpack config and proxy
+│   ├── api/                   # API 请求模块
+│   ├── assets/                # 图片、图标、样式
+│   ├── components/            # 通用组件
+│   ├── config/                # 应用与路由配置
+│   ├── core/                  # 启动、认证、全局初始化
+│   ├── layouts/               # 页面布局
+│   ├── locales/               # 国际化资源
+│   ├── router/                # Vue Router 配置
+│   ├── store/                 # Vuex 状态管理
+│   ├── utils/                 # 工具、请求拦截器、加密辅助
+│   └── views/                 # 页面级模块
+├── vue.config.js              # Vue CLI / webpack 与代理配置
 ├── babel.config.js
 ├── package.json
 ├── Dockerfile
 └── LICENSE
 ```
 
-## Technology Stack
+## 技术栈
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | Vue 2.x, Vue Router, Vuex |
+| 层级 | 技术 |
+|------|------|
+| Framework | Vue 2.x、Vue Router、Vuex |
 | UI | Ant Design Vue |
-| Charts | KLineCharts, ECharts |
+| Charts | KLineCharts、ECharts |
 | Editor | CodeMirror 5 |
-| Networking | Axios with interceptors |
+| Networking | Axios + interceptors |
 | i18n | vue-i18n |
-| Build | Vue CLI, Webpack 4 |
-| Styling | Less and scoped CSS |
+| Build | Vue CLI、Webpack 4 |
+| Styling | Less + scoped CSS |
 
-## Internationalization
+## 国际化
 
-QuantDinger frontend currently supports 10 languages through `src/locales/lang/`:
+当前前端通过 `src/locales/lang/` 支持 10 种语言：
 
-| Language | File | Language | File |
-|----------|------|----------|------|
+| 语言 | 文件 | 语言 | 文件 |
+|------|------|------|------|
 | English | `en-US.js` | 简体中文 | `zh-CN.js` |
 | 繁體中文 | `zh-TW.js` | 日本語 | `ja-JP.js` |
 | 한국어 | `ko-KR.js` | Deutsch | `de-DE.js` |
 | Français | `fr-FR.js` | ไทย | `th-TH.js` |
 | Tiếng Việt | `vi-VN.js` | العربية | `ar-SA.js` |
 
-To add another language, create a matching file and register it in `src/locales/index.js`.
+如需新增语言，可参考现有格式新增文件，并在 `src/locales/index.js` 中注册。
 
-## Screenshots and Product Docs
+## 截图与产品文档
 
-This repository focuses on frontend source development. For visual product tours and full product-level documentation, see:
+本仓库聚焦前端源码开发。若需查看完整产品截图、视觉导览和正式文档，请参考：
 
-- [Main README](https://github.com/brokermr810/QuantDinger)
-- [Main repo docs](https://github.com/brokermr810/QuantDinger/tree/main/docs)
+- [主仓库 README](https://github.com/brokermr810/QuantDinger)
+- [主仓库 docs](https://github.com/brokermr810/QuantDinger/tree/main/docs)
 
-## Contributing
+## 贡献
 
-Contributions are welcome.
+欢迎贡献。
 
-Recommended workflow:
+推荐流程：
 
-1. Fork this repository.
-2. Create a feature branch such as `feature/my-change`.
-3. Commit with clear messages.
-4. Push your branch.
-5. Open a pull request.
+1. Fork 本仓库。
+2. 创建功能分支，例如 `feature/my-change`。
+3. 使用清晰的提交信息完成开发。
+4. 推送分支。
+5. 发起 Pull Request。
 
-Please also review the main repository contribution guidance:
+也建议同时参考主仓库的贡献说明：
 
 - [Contributing Guide](https://github.com/brokermr810/QuantDinger/blob/main/CONTRIBUTING.md)
 
-## Community and Support
+## 社区与支持
 
-| Channel | Link |
-|---------|------|
+| 渠道 | 链接 |
+|------|------|
 | Telegram | [t.me/worldinbroker](https://t.me/worldinbroker) |
-| GitHub Issues | [Report bugs / Request features](https://github.com/brokermr810/QuantDinger/issues) |
+| GitHub Issues | [问题反馈 / 功能建议](https://github.com/brokermr810/QuantDinger/issues) |
 | Email | [brokermr810@gmail.com](mailto:brokermr810@gmail.com) |
 
 ## License
 
-This repository is released under the **QuantDinger Frontend Source-Available License v1.0**. See [`LICENSE`](./LICENSE) for the full license text.
+本仓库采用 **QuantDinger Frontend Source-Available License v1.0**。完整条款见 [`LICENSE`](./LICENSE)。
 
-Summary of the license position:
+许可证摘要如下：
 
-- Non-Commercial Use is permitted free of charge.
-- Qualified Non-Profit Entity use is permitted free of charge within the scope defined by the license.
-- Commercial Use requires a separate commercial license from QuantDinger.
-- Branding, trademarks, attribution, and watermark notices may not be removed, altered, or misrepresented without prior written permission.
+- 非商业用途可免费使用。
+- 符合条件的非营利机构用途可在许可证定义范围内免费使用。
+- 商业用途必须另行获得 QuantDinger 的商业授权。
+- 品牌、商标、署名与水印相关内容，未经事先书面许可，不得移除、修改或误导性展示。
 
-| Use Category | Cost | Scope |
-|--------------|------|-------|
-| Non-Commercial Use | Free | Personal learning, study, research, teaching, evaluation, experimentation, and similar non-commercial purposes |
-| Qualified Non-Profit Entity Use | Free | Mission-aligned use by eligible non-profits, accredited educational institutions, and government-funded public research institutions |
-| Commercial Use | License required | Any use involving commercial advantage, monetization, paid service delivery, or commercial product/service integration |
+| 使用类型 | 成本 | 范围 |
+|----------|------|------|
+| 非商业用途 | 免费 | 个人学习、研究、教学、内部评估、实验及其他非商业目的 |
+| 合格非营利机构用途 | 免费 | 适用于符合条件的非营利组织、认证教育机构和政府资助公共研究机构的使命相关使用 |
+| 商业用途 | 需要授权 | 任何涉及商业利益、变现、收费服务或商业产品/服务集成的使用 |
 
-For commercial licensing:
+商业授权联系：
 
 - Website: [quantdinger.com](https://quantdinger.com)
 - Telegram: [t.me/worldinbroker](https://t.me/worldinbroker)
 - Email: [brokermr810@gmail.com](mailto:brokermr810@gmail.com)
 
-## Legal Notice and Compliance
+## 法律声明与合规提示
 
-- This frontend, and any related QuantDinger software or derivative work, may be used only for lawful purposes.
-- No individual or organization may use the software for any unlawful, fraudulent, abusive, deceptive, market-manipulative, sanctions-violating, money-laundering, or otherwise prohibited activity.
-- Any commercial deployment, operation, redistribution, resale, or service offering based on QuantDinger must comply with the laws, regulations, licensing requirements, sanctions rules, tax rules, data-protection rules, and market or platform rules applicable in the country or region where it is used.
-- Users are solely responsible for determining whether their use is lawful in their jurisdiction and for obtaining any approvals, registrations, disclosures, or professional advice required by applicable law.
-- QuantDinger, its copyright holders, contributors, licensors, maintainers, and related open-source participants do not provide legal, tax, investment, compliance, or regulatory advice.
-- To the maximum extent permitted by applicable law, all such parties disclaim responsibility and liability for any unlawful use, regulatory breach, trading loss, service interruption, enforcement action, or other consequence arising from the use or misuse of the software.
+- 本前端及相关 QuantDinger 软件、衍生版本仅可用于合法用途。
+- 任何个人或组织不得将本软件用于任何违法、欺诈、滥用、误导、市场操纵、违反制裁、洗钱或其他被法律法规禁止的活动。
+- 任何基于 QuantDinger 的商业部署、运营、再分发、转售或服务化提供，均必须遵守使用地所属国家或地区适用的法律法规、许可要求、制裁规则、税务规则、数据保护规则以及相关市场或平台规则。
+- 用户应自行判断其使用行为在所属司法辖区是否合法，并自行承担取得审批、备案、披露、牌照或专业法律/税务/合规意见的责任。
+- QuantDinger 及其版权方、贡献者、许可方、维护者和相关开源参与方，不提供任何法律、税务、投资、合规或监管意见。
+- 在适用法律允许的最大范围内，上述各方对任何因使用或误用本软件而导致的违法使用、监管违规、交易损失、服务中断、执法措施或其他后果，不承担责任。
 
-## Acknowledgements
+## 致谢
 
-This frontend builds on a strong open-source ecosystem:
+本前端构建于成熟的开源生态之上：
 
 - [Vue.js](https://vuejs.org/)
 - [Ant Design Vue](https://antdv.com/)
@@ -308,5 +315,5 @@ This frontend builds on a strong open-source ecosystem:
 - [ant-design-vue-pro](https://github.com/vueComponent/ant-design-vue-pro)
 
 <p align="center">
-  If QuantDinger helps you, consider giving it a star.
+  如果 QuantDinger 对你有帮助，欢迎给项目点一个 Star。
 </p>
