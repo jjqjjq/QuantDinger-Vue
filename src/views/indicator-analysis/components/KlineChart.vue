@@ -3238,8 +3238,12 @@ registerOverlay({
             }
           },
           bar: {
-            upColor: isDark ? '#0ecb81' : '#13c2c2',
-            downColor: isDark ? '#f6465d' : '#fa541c',
+            upColor: isDark ? '#ef5350' : '#f5222d',
+            downColor: isDark ? '#52c41a' : '#52c41a',
+            upBorderColor: isDark ? '#ef5350' : '#f5222d',
+            downBorderColor: isDark ? '#52c41a' : '#52c41a',
+            upWickColor: isDark ? '#ef5350' : '#f5222d',
+            downWickColor: isDark ? '#52c41a' : '#52c41a',
             noChangeColor: theme.borderColor
           },
           // 若使用面积图类型，关闭末端点动画可减少实时跳动观感

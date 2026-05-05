@@ -1183,7 +1183,7 @@ export default {
       symbol: 'BTC/USDT',
       timeframe: '1D',
       watchlist: [],
-      selectedWatchlistKey: 'Crypto:BTC/USDT',
+      selectedWatchlistKey: 'Crypto:BNB/USDT',
 
       initialCapital: 10000,
       leverage: 1,
@@ -1551,8 +1551,9 @@ export default {
     await this.loadUserId()
     this.loadPurchasedMarketHintDismissed()
     await this.loadIndicators()
-    await this.loadWatchlist()
     this.restoreIdeUiState()
+    await this.loadWatchlist()
+    this.reconcileIdeMarketFromWatchlist()
     this.autoSelectFirstIndicator()
   },
   mounted () {
@@ -1632,34 +1633,26 @@ export default {
         if (raw == null || raw === '') return
         const s = typeof raw === 'string' ? JSON.parse(raw) : raw
         if (!s || typeof s !== 'object') return
-        let hadChartVisibleKey = false
-        if (Array.isArray(s.activeIndicators)) {
-          this.activeIndicators = this.normalizePersistedChartIndicators(s.activeIndicators)
-        }
-        if (Array.isArray(s.chartVisibleIndicatorIds)) {
-          hadChartVisibleKey = true
-          const valid = s.chartVisibleIndicatorIds
-            .map(Number)
-            .filter(id => !isNaN(id) && this.indicators.some(i => Number(i.id) === id))
-          this.chartVisibleIndicatorIds = valid
-        }
-        if (s.timeframe && Object.prototype.hasOwnProperty.call(TF_MAX_DAYS, s.timeframe)) {
-          this.timeframe = s.timeframe
-        }
-        if (s.market && s.symbol) {
-          this.market = String(s.market)
-          this.symbol = String(s.symbol)
-          this.qtSymbol = this.symbol
-          this.selectedWatchlistKey = `${this.market}:${this.symbol}`
-        } else if (s.selectedWatchlistKey && typeof s.selectedWatchlistKey === 'string') {
+
+        if (s.selectedWatchlistKey && typeof s.selectedWatchlistKey === 'string') {
+          this.selectedWatchlistKey = s.selectedWatchlistKey
           const [m, sym] = s.selectedWatchlistKey.split(':')
           if (m && sym) {
             this.market = m
             this.symbol = sym
-            this.qtSymbol = sym
-            this.selectedWatchlistKey = s.selectedWatchlistKey
+            this.qtSymbol = s.qtSymbol || sym
           }
+        } else if (s.market && s.symbol) {
+          this.market = String(s.market)
+          this.symbol = String(s.symbol)
+          this.qtSymbol = s.qtSymbol || this.symbol
+          this.selectedWatchlistKey = `${this.market}:${this.symbol}`
         }
+
+        if (s.timeframe && Object.prototype.hasOwnProperty.call(TF_MAX_DAYS, s.timeframe)) {
+          this.timeframe = s.timeframe
+        }
+
         if (s.selectedIndicatorId != null && s.selectedIndicatorId !== '') {
           const id = Number(s.selectedIndicatorId)
           if (!isNaN(id) && this.indicators.some(i => Number(i.id) === id)) {
@@ -1667,10 +1660,31 @@ export default {
             this.onIndicatorChange(id)
           }
         }
-        if (!hadChartVisibleKey && !this.chartVisibleIndicatorIds.length && this.selectedIndicatorId != null) {
-          this.chartVisibleIndicatorIds = [Number(this.selectedIndicatorId)]
-          this.syncSelectedIndicatorToChart()
+
+        if (Array.isArray(s.activeIndicators)) {
+          this.activeIndicators = this.normalizePersistedChartIndicators(s.activeIndicators)
         }
+        if (Array.isArray(s.chartVisibleIndicatorIds)) {
+          const valid = s.chartVisibleIndicatorIds
+            .map(Number)
+            .filter(id => !isNaN(id) && this.indicators.some(i => Number(i.id) === id))
+          this.chartVisibleIndicatorIds = valid
+        }
+
+        if (typeof s.chartFullscreen === 'boolean') {
+          this.chartFullscreen = s.chartFullscreen
+        }
+        if (typeof s.quickTradeDrawerVisible === 'boolean') {
+          this.quickTradeDrawerVisible = s.quickTradeDrawerVisible
+        }
+        if (s.ideWorkspaceTab && ['chart', 'backtest'].includes(s.ideWorkspaceTab)) {
+          this.ideWorkspaceTab = s.ideWorkspaceTab
+        }
+
+        if (!this.chartVisibleIndicatorIds.length && this.selectedIndicatorId != null) {
+          this.chartVisibleIndicatorIds = [Number(this.selectedIndicatorId)]
+        }
+
         this.reconcileIdeMarketFromWatchlist()
       } catch (_) { /* ignore corrupt cache */ }
     },
@@ -1693,7 +1707,11 @@ export default {
           selectedIndicatorId: this.selectedIndicatorId,
           chartVisibleIndicatorIds: this.chartVisibleIndicatorIds,
           selectedWatchlistKey: this.selectedWatchlistKey,
-          activeIndicators: this.serializeChartIndicators()
+          activeIndicators: this.serializeChartIndicators(),
+          qtSymbol: this.qtSymbol,
+          chartFullscreen: this.chartFullscreen,
+          quickTradeDrawerVisible: this.quickTradeDrawerVisible,
+          ideWorkspaceTab: this.ideWorkspaceTab
         }
         storage.set(ideUiCacheStorageKey(this.userId), JSON.stringify(payload))
       } catch (_) { /* ignore quota */ }
@@ -1759,7 +1777,6 @@ export default {
       if (row) {
         this.market = String(row.market)
         this.symbol = String(row.symbol)
-        this.qtSymbol = this.symbol
       }
     },
 
@@ -3138,7 +3155,16 @@ export default {
           })
           this.$message.success(this.$t('indicatorIde.backtestComplete'))
         } else {
-          this.$message.error(response.msg || this.$t('indicatorIde.backtestFailed'))
+          // 检查是否是日期范围限制错误，使用 notification 显示详细信息
+          if (response.msg && (response.msg.includes('超出限制') || response.msg.includes('exceeds limit'))) {
+            this.$notification.error({
+              message: '回测参数错误',
+              description: response.msg,
+              duration: 8
+            })
+          } else {
+            this.$message.error(response.msg || this.$t('indicatorIde.backtestFailed'))
+          }
         }
       } catch (e) {
         this.$message.error(e.message || this.$t('indicatorIde.backtestFailed'))
