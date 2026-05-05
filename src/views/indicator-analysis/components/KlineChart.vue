@@ -2927,11 +2927,16 @@ registerOverlay({
             drawingBarVisible: true, // 尝试启用内置画线工具栏
             overlay: {
               visible: true
-            }
+            },
+            timezone: 'UTC' // 数据源是UTC时间，图表显示需要转换为UTC
           })
         } catch (e) {
           // 如果不支持配置选项，使用默认初始化
           chartRef.value = init(container)
+          // 尝试设置时区
+          if (chartRef.value && typeof chartRef.value.setTimezone === 'function') {
+            chartRef.value.setTimezone('UTC')
+          }
         }
 
         // 如果配置选项方式不支持，尝试调用方法启用画线工具栏

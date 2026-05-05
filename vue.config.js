@@ -40,6 +40,7 @@ const assetsCDN = {
 
 // vue.config.js
 const vueConfig = {
+  outputDir: '../QuantDinger/frontend/dist',
   configureWebpack: {
     // webpack plugins
     plugins: [
